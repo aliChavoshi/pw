@@ -5,20 +5,20 @@
 </div>
 <div>
     <label>Use Latters</label>
-    <input type=" checkbox " (change)="onChangeUseLetters() ">
+    <input type="checkbox" (change)="onChangeUseLetters()">
 </div>
 <div>
     <label>Use Numbers</label>
-    <input type="checkbox " (change)="onChangeUseNumbers() ">
+    <input type="checkbox" (change)="onChangeUseNumbers()">
 </div>
 <div>
     <label>Use Symbols</label>
-    <input type="checkbox " (change)="onChangeUseSymbols() ">
+    <input type="checkbox" (change)="onChangeUseSymbols()">
 </div>
-<button (click)="onButtonClick() ">Generate!</button>
+<button [disabled]="!(lenght && (includeLetters || includeNumbers || includeSymbols))" (click)="onButtonClick() ">Generate!</button>
 <div>
     <label>Your Password</label>
-    <input [value]="getPassword() ">
+    <input [value]="password">
 </div>
-
+<!-- interpolation -->
 {{ password }}

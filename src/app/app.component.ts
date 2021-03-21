@@ -11,11 +11,8 @@ export class AppComponent {
   includeLetters : boolean = false;
   includeNumbers : boolean = false;
   includeSymbols : boolean = false;
-  password : string;
+  password : string = '';
 
-  constructor(){
-    this.password='';
-  }
   onChangeLenght(value:string){
     const parsedValue= parseInt(value);
     if (!isNaN(parsedValue)) {
@@ -32,10 +29,25 @@ export class AppComponent {
     this.includeSymbols = !this.includeSymbols;
   }
   onButtonClick(){
-    console.log(`include letters : ${this.includeLetters}`);
-    console.log(`include Numbers : ${this.includeNumbers}`);
-    console.log(`include Symbolds : ${this.includeSymbols}`);
-    this.password = "MY Password !!!"
+    const numbers = "1234567890";
+    const letters = "abcdefghijklmnopqrstuvwxyz";
+    const symbols = "!@#$%^&*()_+|:><?";
+    let validChars ='';
+    if (this.includeLetters) {
+      validChars+=letters;
+    }
+    if (this.includeNumbers) {
+      validChars+=numbers;
+    }
+    if (this.includeSymbols) {
+      validChars+=symbols;
+    }
+    let generatedPassword = '';
+    for (let index = 0; index < this.lenght; index++) {
+      let index = Math.floor(Math.random() * validChars.length);
+      generatedPassword +=validChars[index];
+    }
+    this.password = generatedPassword;
   }
   getPassword(){
     return this.password;
