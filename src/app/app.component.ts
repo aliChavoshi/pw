@@ -5,13 +5,27 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
+  includeLetters : boolean = false;
+  includeNumbers : boolean = false;
+  includeSymbols : boolean = false;
   password : string;
+
   constructor(){
     this.password='';
   }
-
+  onChangeUseLetters(){
+    this.includeLetters = !this.includeLetters;
+  }
+  onChangeUseNumbers(){
+    this.includeNumbers = !this.includeNumbers;
+  }
+  onChangeUseSymbols(){
+    this.includeSymbols = !this.includeSymbols;
+  }
   onButtonClick(){
+    console.log(this.includeLetters);
     this.password = "MY Password !!!"
   }
   getPassword(){

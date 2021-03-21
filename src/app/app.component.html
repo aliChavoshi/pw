@@ -5,20 +5,20 @@
 </div>
 <div>
     <label>Use Latters</label>
-    <input type="checkbox" name="" id="">
+    <input type="checkbox" (change)="onChangeUseLetters()">
 </div>
 <div>
     <label>Use Numbers</label>
-    <input type="checkbox" name="" id="">
+    <input type="checkbox" (change)="onChangeUseNumbers()">
 </div>
 <div>
     <label>Use Symbols</label>
-    <input type="checkbox" name="" id="">
+    <input type="checkbox" (change)="onChangeUseSymbols()">
 </div>
 <button (click)="onButtonClick()">Generate!</button>
 <div>
     <label>Your Password</label>
-    <input [value]="this.getPassword()">
+    <input [value]="getPassword()">
 </div>
 
 {{ password }}
