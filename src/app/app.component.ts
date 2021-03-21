@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+  lenght : number = 0;
   includeLetters : boolean = false;
   includeNumbers : boolean = false;
   includeSymbols : boolean = false;
@@ -14,6 +15,12 @@ export class AppComponent {
 
   constructor(){
     this.password='';
+  }
+  onChangeLenght(value:string){
+    const parsedValue= parseInt(value);
+    if (!isNaN(parsedValue)) {
+      this.lenght = parsedValue;
+    }
   }
   onChangeUseLetters(){
     this.includeLetters = !this.includeLetters;
